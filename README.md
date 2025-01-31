@@ -56,5 +56,54 @@ If you delete the data directory, new identities and databases will be created w
 This means you will have to edit the bootstrap list of the other nodes.
 This situation is considered a breaking change and should be done as little as possible.
 
+
+## Deployment Recommendations
+
+To ensure the **PayAI Bootstrap Node** runs reliably in production, follow these deployment best practices:
+
+#### **1. Run on a Dedicated Server**
+
+- Deploy the bootstrap node on a **VPS, dedicated server, or cloud instance** (AWS, DigitalOcean, Hetzner, etc.).
+- Ensure the server has **sufficient uptime** to provide stable network access for PayAI nodes.
+
+#### **2. Use a Publicly Accessible Static IP**
+
+- The server should have a **static public IP** so that other nodes can reliably connect to it.
+- If using a **cloud provider**, allocate a **reserved/static IP**.
+
+
+#### **3. Keep the Node Running with PM2**
+
+To ensure the bootstrap node **runs persistently and restarts on failure**, use **PM2**:
+
+1. **Install PM2** globally:
+   ```sh
+   npm install -g pm2
+   ```
+2. **Start the bootstrap node**:
+   ```sh
+   pm2 start index.js --name payai-bootstrap
+   ```
+3. **Enable startup persistence so the script is always running even after reboot**:
+   ```sh
+   pm2 save
+   pm2 startup
+   ```
+
+#### **4. Monitor Logs and Performance**
+
+To check logs and monitor the node in real-time:
+
+```sh
+pm2 logs payai-bootstrap
+```
+
+For a detailed process status:
+
+```sh
+pm2 status
+```
+
+
 ## License
 MIT
