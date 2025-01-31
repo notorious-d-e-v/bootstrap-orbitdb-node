@@ -8,12 +8,14 @@
 import { createHelia } from 'helia';
 import { createLibp2p } from 'libp2p';
 import { createOrbitDB, IPFSAccessController } from '@orbitdb/core';
+import { FsBlockstore } from 'blockstore-fs';
 import { Libp2pOptions } from './libp2p.js';
 import { dataDir } from './datadir.js';
 
 
 const libp2p = await createLibp2p(Libp2pOptions);
-const ipfs = await createHelia({ libp2p });
+const blockstore = new FsBlockstore(dataDir + '/ipfs');
+const ipfs = await createHelia({ libp2p, blockstore });
 const orbitdb = await createOrbitDB({ ipfs, directory: dataDir + '/orbitdb' });
 console.log("libp2p peerId: ", libp2p.peerId);
 console.log("libp2p addresses: ", libp2p.getMultiaddrs());
