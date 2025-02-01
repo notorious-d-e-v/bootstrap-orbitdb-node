@@ -17,5 +17,8 @@
     "blockstore-fs": "^2.0.2",
     "datastore-level": "^11.0.1",
     "helia": "^5.2.0"
+  },
+  "devDependencies": {
+    "pm2": "^5.4.3"
   }
 }

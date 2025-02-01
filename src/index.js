@@ -22,20 +22,20 @@ console.log("libp2p addresses: ", libp2p.getMultiaddrs());
 console.log("");
 
 // create the databases
-const updates = await orbitdb.open("updates", { AccessController: IPFSAccessController({ write: ['*']}) });
+const updates = await orbitdb.open("updates", { AccessController: IPFSAccessController({ write: ['*']}), sync: true });
 console.log('updates db: ', updates.address);
 
-const serviceAds = await orbitdb.open("service-ads", { type: "documents", AccessController: IPFSAccessController({ write: ['*']}) });
+const serviceAds = await orbitdb.open("service-ads", { type: "documents", AccessController: IPFSAccessController({ write: ['*']}), sync: true });
 console.log('services db: ', serviceAds.address);
 
-const buyOffers = await orbitdb.open("buy-offers", { type: "documents", AccessController: IPFSAccessController({ write: ['*']}) });
+const buyOffers = await orbitdb.open("buy-offers", { type: "documents", AccessController: IPFSAccessController({ write: ['*']}), sync: true });
 console.log('buy offers db: ', buyOffers.address);
 
-const agreements = await orbitdb.open("agreements", { type: "documents", AccessController: IPFSAccessController({ write: ['*']}) });
+const agreements = await orbitdb.open("agreements", { type: "documents", AccessController: IPFSAccessController({ write: ['*']}), sync: true });
 console.log('agreements db: ', agreements.address);
 
 
 updates.events.on('update', async (entry) => {
     // what has been updated.
-    console.log('update', entry.payload.value)
+    console.log('updates db: ', entry.payload.value)
 })
