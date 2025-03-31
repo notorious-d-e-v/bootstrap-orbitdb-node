@@ -40,6 +40,20 @@ cd payai-bootstrap-node
 npm install
 ```
 
+Copy the environment file and set the environment variables:
+
+```sh
+cp .env.example .env
+```
+
+## Environment Variables
+
+`IPV4_ADDRESS` - required: this is the public address of the machine and is what gets announced to the libp2p network.
+`UPDATES` - optional: if set, the node will connect to this database, otherwise it will create a new one.
+`SERVICE_ADS` - optional: if set, the node will connect to this database, otherwise it will create a new one.
+`BUY_OFFERS` - optional: if set, the node will connect to this database, otherwise it will create a new one.
+`AGREEMENTS` - optional: if set, the node will connect to this database, otherwise it will create a new one.
+
 ## Usage
 
 To start the PayAI Bootstrap Node, run the following command:

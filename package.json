@@ -16,6 +16,7 @@
     "@orbitdb/core": "^2.4.3",
     "blockstore-fs": "^2.0.2",
     "datastore-level": "^11.0.1",
+    "dotenv": "^16.4.7",
     "helia": "^5.2.0"
   },
   "devDependencies": {
