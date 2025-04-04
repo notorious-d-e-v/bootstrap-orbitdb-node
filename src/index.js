@@ -30,7 +30,8 @@ const dbConfigs = [
     { name: "updates", hash: process.env.UPDATES, options: { AccessController: IPFSAccessController({ write: ['*']}), sync: true } },
     { name: "service-ads", hash: process.env.SERVICE_ADS, options: { type: "documents", AccessController: IPFSAccessController({ write: ['*']}), sync: true } },
     { name: "buy-offers", hash: process.env.BUY_OFFERS, options: { type: "documents", AccessController: IPFSAccessController({ write: ['*']}), sync: true } },
-    { name: "agreements", hash: process.env.AGREEMENTS, options: { type: "documents", AccessController: IPFSAccessController({ write: ['*']}), sync: true } }
+    { name: "agreements", hash: process.env.AGREEMENTS, options: { type: "documents", AccessController: IPFSAccessController({ write: ['*']}), sync: true } },
+    { name: "funded-contracts", hash: process.env.FUNDED_CONTRACTS, options: { AccessController: IPFSAccessController({ write: ['*']}), sync: true } }
 ];
 
 const databases = [];
@@ -44,7 +45,8 @@ for (const dbConfig of dbConfigs) {
     console.log(`${dbConfig.name} db: `, db.address);
 
     db.events.on('update', async (entry) => {
-        console.log(`${dbConfig.name} db: `, entry);
+        console.log(`${dbConfig.name} db:`);
+        console.dir(entry, {depth: null});
     });
 }
 

@@ -58,6 +58,10 @@ export const Libp2pOptions = {
   peerDiscovery: [
     bootstrap({
       list: [
+	"/ip4/146.0.79.23/tcp/2368/p2p/12D3KooWRZjd3sRLEuGDW2JR8xsnXedosU3eoe5XhnUAsqFauoTn",
+	"/ip4/146.0.79.23/tcp/2369/ws/p2p/12D3KooWRZjd3sRLEuGDW2JR8xsnXedosU3eoe5XhnUAsqFauoTn",
+        "/ip4/194.164.234.145/tcp/2368/p2p/12D3KooWSqFeLyhU1GFFpodBrbGFCTGEvqW4nFKV4LsZk3L4LoZz",
+        "/ip4/194.164.234.145/tcp/2369/ws/p2p/12D3KooWSqFeLyhU1GFFpodBrbGFCTGEvqW4nFKV4LsZk3L4LoZz",
 	"/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN",
 	"/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa", // rust-libp2p-server
 	"/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb",
